@@ -29,7 +29,7 @@ COPY . /app
 
 # Download and install Go modules
 #RUN go mod tidy
-
+RUN gh repo clone cooldogedev/spectrum
 # Build your application
 RUN go build -o spectrum-server
 
