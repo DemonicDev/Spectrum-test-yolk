@@ -24,7 +24,7 @@ RUN go version
 
 WORKDIR /home/container
 
-RUN wget https://github.com/cooldogedev/spectrum/archive/refs/heads/main.zip
+#RUN wget https://github.com/cooldogedev/spectrum/archive/refs/heads/main.zip
 # Set up the working directory
 #WORKDIR /app
 
@@ -40,4 +40,4 @@ RUN wget https://github.com/cooldogedev/spectrum/archive/refs/heads/main.zip
 #EXPOSE 8080
 
 # Command to run your application
-CMD ["./spectrum-server"]
+#CMD ["./spectrum-server"]
