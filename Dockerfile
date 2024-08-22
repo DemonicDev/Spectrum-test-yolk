@@ -10,6 +10,7 @@ RUN apt-get update && \
 WORKDIR /home/container
     
 COPY go.mod go.sum ./
+COPY ./example ./example
 RUN go mod download && go mod verify
 # Install Go 1.22.1
 #RUN wget https://golang.org/dl/go1.22.1.linux-amd64.tar.gz && \
@@ -45,4 +46,4 @@ RUN go version
 # Command to run your application
 #CMD ["./spectrum-server"]
 ENV GOCACHE=/tmp/go-build-cache
-CMD ["go run example/api.go"]
+CMD ["go", "run", "/home/container/example/api.go"]
