@@ -7,6 +7,9 @@ RUN apt-get update && \
     wget \
     tar \
     build-essential
+    curl && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 # Install Go 1.22.1
 RUN wget https://golang.org/dl/go1.22.1.linux-amd64.tar.gz && \
