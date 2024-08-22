@@ -53,6 +53,8 @@ RUN go version
 
 # Command to run your application
 #CMD ["./spectrum-server"]
+COPY install.sh /install.sh
+RUN chmod +x /install.sh
 RUN /install.sh
 
 ENV GOCACHE=/tmp/go-build-cache
