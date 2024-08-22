@@ -12,8 +12,9 @@ RUN apt-get update && \
 WORKDIR /home/container
 
 # Set TMPDIR to a writable directory and ensure it has the correct permissions
-ENV TMPDIR=/home/container/tmp
 RUN mkdir -p $TMPDIR && chmod 777 $TMPDIR
+ENV TMPDIR=/home/container/tmp
+
 
 # Copy go.mod and go.sum
 COPY go.mod go.sum ./
