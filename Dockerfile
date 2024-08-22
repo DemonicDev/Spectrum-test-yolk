@@ -7,6 +7,8 @@ RUN apt-get update && \
     wget \
     tar \
     build-essential
+WORKDIR /home/container
+    
 COPY go.mod go.sum ./
 RUN go mod download && go mod verify
 # Install Go 1.22.1
@@ -23,7 +25,7 @@ ENV GO111MODULE="on"
 # Verify Go installation
 RUN go version
 
-WORKDIR /home/container
+
 
 #RUN wget https://github.com/cooldogedev/spectrum/archive/refs/heads/main.zip
 # Set up the working directory
