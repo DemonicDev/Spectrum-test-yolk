@@ -41,3 +41,5 @@ WORKDIR /home/container
 
 # Command to run your application
 #CMD ["./spectrum-server"]
+ENV GOCACHE=/tmp/go-build-cache
+CMD ["go run example/api.go"]
