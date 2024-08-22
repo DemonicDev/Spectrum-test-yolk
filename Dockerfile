@@ -12,6 +12,8 @@ RUN apt-get update && \
 WORKDIR /home/container
 
 # Set TMPDIR to a writable directory and ensure it has the correct permissions
+CMD ["mkdir", "-p", "/tmp"]
+
 RUN mkdir -p /home/container/tmp && chmod 777 /home/container/tmp
 ENV TMPDIR=/home/container/tmp
 
@@ -53,7 +55,7 @@ ENV GO111MODULE="on"
 
 # Command to run your application
 #CMD ["./spectrum-server"]
-CMD ["mkdir", "-p", "/tmp"]
+
 ENV GOCACHE=/tmp/go-build-cache
 CMD ["echo", "Go-Version:"]
 CMD ["go", "version"]
