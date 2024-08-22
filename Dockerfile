@@ -12,7 +12,7 @@ RUN apt-get update && \
 WORKDIR /home/container
 
 # Set TMPDIR to a writable directory and ensure it has the correct permissions
-RUN mkdir -p $TMPDIR && chmod 777 $TMPDIR
+RUN mkdir -p /home/container/tmp && chmod 777 /home/container/tmp
 ENV TMPDIR=/home/container/tmp
 
 
