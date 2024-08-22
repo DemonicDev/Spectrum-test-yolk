@@ -12,7 +12,7 @@ RUN apt-get update && \
 RUN wget https://golang.org/dl/go1.22.1.linux-amd64.tar.gz && \
     tar -C /usr/local -xzf go1.22.1.linux-amd64.tar.gz && \
     rm go1.22.1.linux-amd64.tar.gz
-RUN wget https://github.com/cooldogedev/spectrum.git
+#RUN wget https://github.com/cooldogedev/spectrum.git
 
 # Set up Go environment
 ENV PATH="/usr/local/go/bin:${PATH}"
@@ -22,6 +22,9 @@ ENV GO111MODULE="on"
 # Verify Go installation
 RUN go version
 
+WORKDIR /home/container
+
+RUN curl https://github.com/cooldogedev/spectrum/archive/refs/heads/main.zip
 # Set up the working directory
 #WORKDIR /app
 
