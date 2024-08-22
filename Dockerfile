@@ -23,16 +23,15 @@ ENV GO111MODULE="on"
 RUN go version
 
 # Set up the working directory
-WORKDIR /app
+#WORKDIR /app
 
 # Copy your application code to the container
-COPY . /app
+#COPY . /app
 
 # Download and install Go modules
 #RUN go mod tidy
-RUN gh repo clone cooldogedev/spectrum
 # Build your application
-RUN go build -o spectrum-server
+#RUN go build -o spectrum-server
 
 # Expose the port your application will run on
 #EXPOSE 8080
