@@ -18,7 +18,7 @@ ENV TMPDIR=/home/container/tmp
 
 # Copy go.mod and go.sum
 COPY go.mod go.sum ./
-COPY ./example ./example
+#COPY ./example ./example
 RUN go mod download && go mod verify
 # Install Go 1.22.1
 #RUN wget https://golang.org/dl/go1.22.1.linux-amd64.tar.gz && \
@@ -32,7 +32,7 @@ ENV GOPATH="/go"
 ENV GO111MODULE="on"
 
 # Verify Go installation
-RUN go version
+
 
 
 
@@ -53,9 +53,8 @@ RUN go version
 
 # Command to run your application
 #CMD ["./spectrum-server"]
-COPY install.sh /install.sh
-RUN chmod +x /install.sh
-RUN /install.sh
-
+CMD ["mkdir", "-p", "/tmp"]
 ENV GOCACHE=/tmp/go-build-cache
+CMD ["echo", "Go-Version:"]
+CMD ["go", "version"]
 CMD ["go", "run", "/home/container/example/api.go"]
