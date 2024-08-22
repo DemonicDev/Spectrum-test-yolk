@@ -28,13 +28,13 @@ WORKDIR /app
 COPY . /app
 
 # Download and install Go modules
-RUN go mod tidy
+#RUN go mod tidy
 
 # Build your application
 RUN go build -o spectrum-server
 
 # Expose the port your application will run on
-EXPOSE 8080
+#EXPOSE 8080
 
 # Command to run your application
 CMD ["./spectrum-server"]
