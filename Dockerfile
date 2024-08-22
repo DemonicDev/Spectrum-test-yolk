@@ -1,17 +1,18 @@
 # Use a base image that is appropriate for your needs
-FROM debian:latest
-
+#FROM debian:latest
+FROM golang:1.22.1
 # Install dependencies
 RUN apt-get update && \
     apt-get install -y \
     wget \
     tar \
     build-essential
-
+COPY go.mod go.sum ./
+RUN go mod download && go mod verify
 # Install Go 1.22.1
-RUN wget https://golang.org/dl/go1.22.1.linux-amd64.tar.gz && \
-    tar -C /usr/local -xzf go1.22.1.linux-amd64.tar.gz && \
-    rm go1.22.1.linux-amd64.tar.gz
+#RUN wget https://golang.org/dl/go1.22.1.linux-amd64.tar.gz && \
+#    tar -C /usr/local -xzf go1.22.1.linux-amd64.tar.gz && \
+#    rm go1.22.1.linux-amd64.tar.gz
 #RUN wget https://github.com/cooldogedev/spectrum.git
 
 # Set up Go environment
