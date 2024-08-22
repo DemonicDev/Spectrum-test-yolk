@@ -7,8 +7,15 @@ RUN apt-get update && \
     wget \
     tar \
     build-essential
-WORKDIR /home/container
     
+# Set up the working directory
+WORKDIR /home/container
+
+# Set TMPDIR to a writable directory and ensure it has the correct permissions
+ENV TMPDIR=/home/container/tmp
+RUN mkdir -p $TMPDIR && chmod 777 $TMPDIR
+
+# Copy go.mod and go.sum
 COPY go.mod go.sum ./
 COPY ./example ./example
 RUN go mod download && go mod verify
