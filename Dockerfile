@@ -7,9 +7,6 @@ RUN apt-get update && \
     wget \
     tar \
     build-essential
-    curl && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
 
 # Install Go 1.22.1
 RUN wget https://golang.org/dl/go1.22.1.linux-amd64.tar.gz && \
@@ -27,7 +24,7 @@ RUN go version
 
 WORKDIR /home/container
 
-RUN curl https://github.com/cooldogedev/spectrum/archive/refs/heads/main.zip
+RUN wget https://github.com/cooldogedev/spectrum/archive/refs/heads/main.zip
 # Set up the working directory
 #WORKDIR /app
 
